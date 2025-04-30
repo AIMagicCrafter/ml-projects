@@ -4,7 +4,7 @@
 from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error,mean_absolute_error
+from sklearn.metrics import mean_squared_error,mean_absolute_error,r2_score
 import matplotlib.pyplot as plt
 
 #1. Load the dataset
@@ -33,7 +33,11 @@ mae=mean_absolute_error(y_test,y_pred)
 print(f"Mean Squared Error (MSE): {mse:.3f}")
 print(f"Mean Absolute Error (MAE): {mae:.3f}")
 
-# 8. Plot results
+# Calculate R-squared
+r2=r2_score(y_test,y_pred)
+print(f"R-squared: {r2:.3f}")
+
+# 9. Plot results
 plt.figure(figsize=(10, 6))
 plt.scatter(x_test, y_test, color='blue', label='Actual')
 plt.plot(x_test, y_pred, color='red', label='Prediction Line')
